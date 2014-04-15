@@ -1,0 +1,27 @@
+#matrix1
+{
+	float: left;
+	width: 400px;
+	height: 400px;
+	border-top: 1px solid #999;
+	border-left: 1px solid #999;	
+}
+
+#matrix1 .cell
+{
+	float: left;
+	width: 19px;
+	height: 19px;	
+	border-bottom: 1px solid #999;
+	border-right: 1px solid #999;	
+}
+
+#matrix1 .on
+{
+	background-color: red;
+}
+
+#target
+{
+    background-color: yellow;
+}
