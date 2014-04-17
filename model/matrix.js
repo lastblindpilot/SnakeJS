@@ -1,50 +1,38 @@
-function Matrix(containerId, rows, cols)
-{
-	this.containerId = containerId;
-	this.rows = rows;
-	this.cols = cols;
+/* 	Date: 17/04 
+	.blindpilot	 */
 	
-	this.create = function()
-	{
-		var matrix = document.getElementById(this.containerId);
+function Matrix(matrixContainer, rows, cols) {
+
+  	this.matrix = $(matrixContainer); 	// Matrix container
+  	this.cellClassName = 'cell';   		// The cell class name
+	this.rows = rows;					// Row number
+	this.cols = cols;					// Columns number
+	
+	// Creating the grid
+	this.create = function() {
 		var n = this.rows * this.cols;	
-		
-		matrix.innerHTML = '';
-		
-		for (var i = 0; i < n; i++)
-		{
-			var div = document.createElement('div');
-			div.className = 'cell';
-			matrix.appendChild(div);
-		}
+	    this.matrix.css({'width': this.cols * 20 + 'px', 'height': this.rows * 20 + 'px'});
+
+			for (var i = 0; i < n; i++)
+				this.matrix.append('<div class="' + this.cellClassName + '"></div>');
 	}
 	
-	this.getCell = function(row, col)
-	{
-        var ind = (row - 1) * this.cols + col - 1;
-        var matrix = document.getElementById(this.containerId);
-        var cell = matrix.children[ind];
+ 	// Cell index
+  	this.getCellIndex = function(row, col) {
+    	return (row - 1) * this.cols + (col - 1);
+  	}
 
-        if (cell.id){
-            alert('YOU WIN!');
-            location.reload();
-        }
+	// Get the cell position
+	this.getCell = function(row, col) {
+    	var cell = this.getCellIndex(row, col);
+	    return this.matrix.children()[cell].className.substr(this.cellClassName.length + 1);
 	}
 	
-	this.setCell = function(row, col, val)
-	{
-		var ind = (row - 1) * this.cols + col - 1;
-		var matrix = document.getElementById(this.containerId);
-		var cell = matrix.children[ind];	
-		cell.className = (val ? 'cell on' : 'cell');
-	}
-
-    this.setTarget = function(row, col)
-    {
-        var ind = (row - 1) * this.cols + col - 1;
-        var matrix = document.getElementById(this.containerId);
-        var cell = matrix.children[ind];
-        cell.id = 'target';
-    }
+	// Set the cell position
+	this.setCell = function(row, col, val) {
+    	var cell = this.getCellIndex(row, col);
+		
+		this.matrix.children()[cell].className = (val ? this.cellClassName + ' ' + val : this.cellClassName);
+	}	
 }
 		

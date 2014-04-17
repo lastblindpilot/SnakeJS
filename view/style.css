@@ -1,27 +1,97 @@
-#matrix1
+html, body, table
+{
+	width: 99%;
+	height: 99%;
+}
+
+/* table
+{
+	text-align: center;
+	vertical-align: middle;
+} */
+
+#snakeGame
+{
+	border: 1px solid #888;
+	display: inline-block;
+	padding: 10px;
+}
+
+#gameField
 {
 	float: left;
-	width: 400px;
-	height: 400px;
 	border-top: 1px solid #999;
 	border-left: 1px solid #999;	
 }
 
-#matrix1 .cell
+#gameField .cell
 {
 	float: left;
 	width: 19px;
 	height: 19px;	
 	border-bottom: 1px solid #999;
 	border-right: 1px solid #999;	
+	background-color: transparent;
 }
 
-#matrix1 .on
+#gameField .snake
+{
+	background-color: black;
+}
+
+#gameField .fruit
+{
+	background-color: lime;
+}
+
+#gameField .block
+{
+	background-color: gray;
+}
+
+#gameField .die
 {
 	background-color: red;
 }
 
-#target
+#gameState, #gameRecords
 {
-    background-color: yellow;
+	width: 170px;
+	display: inline-block;
+	margin-left: 10px;
+	font-family: Arial;
+	font-size: 17pt;
+	font-weight: bold;
+	text-align: left;
+	border: 1px solid #999;
+	padding: 2px;
+}
+
+#gameRecords
+{
+	margin-top: 5px;
+	overflow: hidden;
+	height: 276px;
+}
+
+.record
+{
+	font-family: Arial;
+	font-size: 10pt;
+}
+
+.recordName
+{
+	width: 100px;
+	float: left;
+	font-family: Arial;
+	font-size: 10pt;
+	overflow: hidden;
+}
+
+.recordScore
+{
+	text-align: right;
+	font-family: Arial;
+	font-size: 10pt;
 }
