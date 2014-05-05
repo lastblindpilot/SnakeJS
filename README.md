@@ -1,4 +1,6 @@
-Snake JS 
+Snake.JS 
 
-This simple game. 
-For learning the beginning of JS.
+This is the simple game on JavaScript. 
+Made by purpose of learning the JS.
+
+The project is under development.
